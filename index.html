@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gatos aletorios</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="container__title">
+        <i class="em em-cat" aria-role="presentation" aria-label="CAT FACE"></i>
+        Cats App
+        <i class="em em-cat2" aria-role="presentation" aria-label="CAT"></i>
+      </h1>
+      <span id="error"></span>
+      <section id="randomMichis">
+        <h2 class="randomMichis__title">Random Michis</h2>
+        <div class="randomMichis__container">
+          <article class="randomMichis__container-michi">
+            <figure>
+              <img id="img1" alt="Foto de gato aleatorio" />
+            </figure>
+            <button id="btn1">Save michi to favorite</button>
+          </article>
+          <article class="randomMichis__container-michi">
+            <figure>
+              <img id="img2" alt="Foto de gato aleatorio" />
+            </figure>
+            <button id="btn2">Save michi to favorite</button>
+          </article>
+          <article class="randomMichis__container-michi">
+            <figure>
+              <img id="img3" alt="Foto de gato aleatorio" />
+            </figure>
+            <button id="btn3">Save michi to favorite</button>
+          </article>
+        </div>
+        <button class="container__button" type="reset">
+          Generate a new michi
+        </button>
+      </section>
+      <section id="favoritesMichis">
+        <h2 class="favoritesMichis__title">Favorite Michis</h2>
+        <div class="favoritesMichis__container"></div>
+      </section>
+    </div>
+    <script src="./main.js"></script>
+  </body>
+</html>

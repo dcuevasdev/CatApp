@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  font-family: "Tilt Neon", cursive;
+  line-height: 1.5;
+}
+.container {
+  width: 90%;
+  max-width: 99.2rem;
+  margin: 0 auto;
+  text-align: center;
+}
+.container__title {
+  margin-top: 2.4rem;
+  font-size: 3.2rem;
+  text-align: center;
+  color: blueviolet;
+}
+#randomMichis {
+  margin-top: 2.4rem;
+}
+.randomMichis__title {
+  font-size: 2.4rem;
+  color: blue;
+}
+.randomMichis__container,
+.favoritesMichis__container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+  margin-top: 1.6rem;
+}
+.randomMichis__container-michi {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  min-width: 25rem;
+}
+.randomMichis__container-michi figure {
+  width: 100%;
+  height: 25rem;
+}
+.randomMichis__container-michi figure img {
+  width: 100%;
+  height: 100%;
+  border-top-right-radius: 0.8rem;
+  border-top-left-radius: 0.8rem;
+  object-fit: cover;
+}
+#randomMichis button,
+#favoritesMichis button {
+  background: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: brown;
+}
+.randomMichis__container-michi button {
+  width: 100%;
+  height: 2.5rem;
+  margin-bottom: 1.6rem;
+  border: 2px solid blueviolet;
+  border-top: none;
+  border-radius: 0.8rem;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+.container__button {
+  width: 25rem;
+  height: 5rem;
+  margin-top: 1.6rem;
+  border: 2px solid blueviolet;
+  border-radius: 0.8rem;
+}
+#favoritesMichis {
+  margin-top: 2.4rem;
+}
+#favoritesMichis h2 {
+  font-size: 2.4rem;
+  color: blue;
+}
