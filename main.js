@@ -1,6 +1,7 @@
 const API_RANDOM = "https://api.thecatapi.com/v1/images/search?limit=3";
 const API_FAVORITES = "https://api.thecatapi.com/v1/favourites";
 const API_DELETE = (id) => `https://api.thecatapi.com/v1/favourites/${id}`;
+const API_UPLOAD = "https://api.thecatapi.com/v1/images/upload";
 const API_KEY =
   "live_xADZpNiQJgLW4UREtEKn1PAeF7lnLzZ9xpjzpk9UoVJMBZD5rXjYbRBhCKWKpAZw";
 
@@ -18,15 +19,12 @@ const containerFavorites = document.querySelector(
   ".favoritesMichis__container"
 );
 
+const form = document.querySelector("#uploading__form");
+
 async function fetchData(urlApi, obj) {
   const response = await fetch(urlApi, obj);
   const data = await response.json();
-
-  if (response.status !== 200) {
-    spanError.innerHTML = `Hubo un error ${response.status}: ${data.message}`;
-  } else {
-    return data;
-  }
+  return data;
 }
 
 const generatePicture = async (urlApi) => {
@@ -110,6 +108,22 @@ const deleteFavoritesPicture = async (id) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+const uploadMichi = async () => {
+  const formData = new FormData(form);
+  const uploadImage = document.querySelector(".uploading__photo");
+
+  const dataNewPicture = await fetchData(API_UPLOAD, {
+    method: "POST",
+    headers: {
+      "X-API-KEY": API_KEY,
+    },
+    body: formData,
+  });
+
+  uploadImage.src = dataNewPicture.url;
+  saveFavoritesPicture(dataNewPicture.id);
 };
 
 button.addEventListener("click", () => {

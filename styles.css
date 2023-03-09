@@ -79,10 +79,19 @@ html {
   border: 2px solid blueviolet;
   border-radius: 0.8rem;
 }
-#favoritesMichis {
+#favoritesMichis,
+#uploading {
   margin-top: 2.4rem;
 }
-#favoritesMichis h2 {
+#favoritesMichis h2,
+.uploading__title {
   font-size: 2.4rem;
   color: blue;
+}
+#uploading {
+  display: block;
+  margin-bottom: 2.4rem;
+}
+.uploading__photo {
+  width: 25rem;
 }
