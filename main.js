@@ -1,9 +1,8 @@
-const API_RANDOM =
-  "https://api.thecatapi.com/v1/images/search?limit=3&api_key=live_xADZpNiQJgLW4UREtEKn1PAeF7lnLzZ9xpjzpk9UoVJMBZD5rXjYbRBhCKWKpAZw";
-const API_FAVORITES =
-  "https://api.thecatapi.com/v1/favourites?api_key=live_xADZpNiQJgLW4UREtEKn1PAeF7lnLzZ9xpjzpk9UoVJMBZD5rXjYbRBhCKWKpAZw";
-const API_DELETE = (id) =>
-  `https://api.thecatapi.com/v1/favourites/${id}?api_key=live_xADZpNiQJgLW4UREtEKn1PAeF7lnLzZ9xpjzpk9UoVJMBZD5rXjYbRBhCKWKpAZw`;
+const API_RANDOM = "https://api.thecatapi.com/v1/images/search?limit=3";
+const API_FAVORITES = "https://api.thecatapi.com/v1/favourites";
+const API_DELETE = (id) => `https://api.thecatapi.com/v1/favourites/${id}`;
+const API_KEY =
+  "live_xADZpNiQJgLW4UREtEKn1PAeF7lnLzZ9xpjzpk9UoVJMBZD5rXjYbRBhCKWKpAZw";
 
 const spanError = document.querySelector("#error");
 
@@ -47,7 +46,12 @@ const generatePicture = async (urlApi) => {
 
 const loadFavoritesPicture = async (urlApi) => {
   try {
-    const favoriteCatsChosen = await fetchData(urlApi);
+    const favoriteCatsChosen = await fetchData(urlApi, {
+      method: "GET",
+      headers: {
+        "X-API-KEY": API_KEY,
+      },
+    });
 
     containerFavorites.innerHTML = "";
     let toRender = favoriteCatsChosen
@@ -80,12 +84,13 @@ const saveFavoritesPicture = async (id) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "X-API-KEY": API_KEY,
       },
       body: JSON.stringify({
         image_id: id,
       }),
     });
-    console.log("Hola");
+
     loadFavoritesPicture(API_FAVORITES);
   } catch (error) {
     console.log(error);
@@ -96,6 +101,9 @@ const deleteFavoritesPicture = async (id) => {
   try {
     const deleteCats = await fetchData(API_DELETE(id), {
       method: "DELETE",
+      headers: {
+        "X-API-KEY": API_KEY,
+      },
     });
 
     loadFavoritesPicture(API_FAVORITES);
